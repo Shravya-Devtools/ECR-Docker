@@ -2,7 +2,7 @@ name: Build and Push Docker Image to ECR
 
 on:
   push:
-    branches: [ "main" ]  # Runs when you push to main
+    branches: [ "master" ]  # Runs when you push to main
 
 jobs:
   build:
