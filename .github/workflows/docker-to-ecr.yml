@@ -34,9 +34,9 @@ jobs:
       # Step 5: Tag Docker image
       - name: Tag Docker image
         run: |
-          docker tag deploy-aws-ecr:SIT ${{ secrets.ECR_REPOSITORY }}:SIT
+          docker tag deploy-aws-ecr:SIT ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:SIT
 
       # Step 6: Push to ECR
       - name: Push Docker image to ECR
         run: |
-          docker push ${{ secrets.ECR_REPOSITORY }}:SIT
+          docker push ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:SIT
