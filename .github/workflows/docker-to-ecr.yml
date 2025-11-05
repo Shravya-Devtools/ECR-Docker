@@ -17,7 +17,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
@@ -29,14 +29,14 @@ jobs:
       # Step 4: Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t deploy-aws-ecr:SIT .
+          docker build -t deploy-aws-ecr:UAT .
 
       # Step 5: Tag Docker image
       - name: Tag Docker image
         run: |
-          docker tag deploy-aws-ecr:SIT ${{ secrets.ECR_REPOSITORY }}:SIT
+          docker tag deploy-aws-ecr:SIT ${{ secrets.ECR_REPOSITORY }}:UAT
 
       # Step 6: Push Docker image to ECR
       - name: Push Docker image to ECR
         run: |
-          docker push ${{ secrets.ECR_REPOSITORY }}:SIT
+          docker push ${{ secrets.ECR_REPOSITORY }}:UAT
