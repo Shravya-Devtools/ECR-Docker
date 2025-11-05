@@ -30,7 +30,7 @@ jobs:
       # Step 4: Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t deploy-aws-ecr.
+          docker build -t deploy-aws-ecr:SIT .
 
       # Step 5: Tag Docker image
       - name: Tag Docker image
