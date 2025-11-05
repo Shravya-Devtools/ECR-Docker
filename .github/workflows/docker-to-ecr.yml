@@ -30,14 +30,14 @@ jobs:
       # Step 4: Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t my-app .
+          docker build -t deploy-aws-ecr.
 
       # Step 5: Tag Docker image
       - name: Tag Docker image
         run: |
-          docker tag my-app:latest ${{ secrets.ECR_REPOSITORY }}:latest
+          docker tag deploy-aws-ecr:SIT ${{ secrets.ECR_REPOSITORY }}:SIT
 
       # Step 6: Push to ECR
       - name: Push Docker image to ECR
         run: |
-          docker push ${{ secrets.ECR_REPOSITORY }}:latest
+          docker push ${{ secrets.ECR_REPOSITORY }}:SIT
