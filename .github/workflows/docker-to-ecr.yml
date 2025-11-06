@@ -29,14 +29,14 @@ jobs:
       # Step 4: Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t deploy-aws-ecr:Prod .
+          docker build -t sitecrrepo:SIT .
 
       # Step 5: Tag Docker image
       - name: Tag Docker image
         run: |
-          docker tag deploy-aws-ecr:Prod ${{ secrets.ECR_REPOSITORY }}:Prod
+          docker tag sitecrrepo:SIT 226290659955.dkr.ecr.us-east-1.amazonaws.com/sitecrrepo:SIT
 
       # Step 6: Push Docker image to ECR
       - name: Push Docker image to ECR
         run: |
-          docker push ${{ secrets.ECR_REPOSITORY }}:Prod
+          docker push 226290659955.dkr.ecr.us-east-1.amazonaws.com/sitecrrepo:SIT
