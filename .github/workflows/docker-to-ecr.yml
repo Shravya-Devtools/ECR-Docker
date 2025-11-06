@@ -29,14 +29,14 @@ jobs:
       # Step 4: Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t sitecrrepo:v1.0.1 .
+          docker build -t uatecrrepo:v1.0.1 .
 
       # Step 5: Tag Docker image
       - name: Tag Docker image
         run: |
-          docker tag sitecrrepo:v1.0.1 226290659955.dkr.ecr.us-east-1.amazonaws.com/sitecrrepo:v1.0.1
+          docker tag uatecrrepo:v1.0.1 226290659955.dkr.ecr.us-east-1.amazonaws.com/uatecrrepo:v1.0.1
 
       # Step 6: Push Docker image to ECR
       - name: Push Docker image to ECR
         run: |
-          docker push 226290659955.dkr.ecr.us-east-1.amazonaws.com/sitecrrepo:v1.0.1
+          docker push 226290659955.dkr.ecr.us-east-1.amazonaws.com/uatecrrepo:v1.0.1
