@@ -18,7 +18,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        #  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
       # Step 3: Login to Amazon ECR
@@ -29,14 +29,14 @@ jobs:
       # Step 4: Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t uatecrrepo:UAT .
+          docker build -t prodecrrepo:Prod .
 
       # Step 5: Tag Docker image
       - name: Tag Docker image
         run: |
-          docker tag uatecrrepo:UAT 226290659955.dkr.ecr.us-east-1.amazonaws.com/uatecrrepo:UAT
+          docker tag prodecrrepo:Prod 226290659955.dkr.ecr.us-east-1.amazonaws.com/prodecrrepo:Prod
 
       # Step 6: Push Docker image to ECR
       - name: Push Docker image to ECR
         run: |
-          docker push 226290659955.dkr.ecr.us-east-1.amazonaws.com/uatecrrepo:UAT
+          docker push 226290659955.dkr.ecr.us-east-1.amazonaws.com/prodecrrepo:Prod
